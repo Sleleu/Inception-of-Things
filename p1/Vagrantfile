@@ -1,0 +1,22 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "base"
+  config.vm.provider :libvirt do |lv|
+    lv.memory = "1024"
+    lv.cpus = "1"
+  end
+
+  config.vm.define "sleleuS" do |server|
+    server.vm.box = "debian/bookworm64"
+    server.vm.hostname = "sleleuS"
+    server.vm.network "private_network", ip: "192.168.56.110"
+    server.vm.provision "shell", path: "server.sh"
+  end
+
+  config.vm.define "sleleuSW" do |worker|
+    worker.vm.box = "debian/bookworm64"
+    worker.vm.hostname = "sleleuSW"
+    worker.vm.network "private_network", ip: "192.168.56.111"
+    worker.vm.provision "shell", path: "worker.sh"
+  end
+end
