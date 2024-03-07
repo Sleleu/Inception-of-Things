@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app1
-          image: localhost:5000/app1:latest
+          image: paulbouwer/hello-kubernetes:1.2
           ports:
             - containerPort: 80
 ---
@@ -25,5 +25,6 @@ metadata:
 spec:
   ports:
     - port: 80
+      targetPort: 8080
   selector:
     app: app1
