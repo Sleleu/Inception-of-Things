@@ -22,7 +22,7 @@ fi
 
 # delete k3d
 if [ -f /usr/local/bin/k3d ]; then
-    rm /usr/local/bin/k3d
+    sudo rm /usr/local/bin/k3d
     echo -e "${LIGHT_GREEN}k3d successfully deleted${END}"
 else
     echo -e "${LIGHT_GREEN}k3d not installed${END}"
@@ -30,7 +30,7 @@ fi
 
 # delete kubectl
 if [ -f /usr/local/bin/kubectl ]; then
-    rm /usr/local/bin/kubectl
+    sudo rm /usr/local/bin/kubectl
     echo -e "${LIGHT_GREEN}kubectl successfully deleted${END}"
 else
     echo -e "${LIGHT_GREEN}kubectl not installed${END}"
@@ -38,7 +38,7 @@ fi
 
 # delete argocd
 if [ -f /usr/local/bin/argocd ]; then
-    rm /usr/local/bin/argocd
+    sudo rm /usr/local/bin/argocd
     echo -e "${LIGHT_GREEN}argocd successfully deleted${END}"
 else
     echo -e "${LIGHT_GREEN}argocd not installed${END}"
