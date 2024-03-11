@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: dev
 spec:
+  project: default
   source:
     repoURL: https://github.com/sleleu/iot-dev-sleleu.git
     targetRevision: HEAD

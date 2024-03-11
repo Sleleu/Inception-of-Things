@@ -39,5 +39,6 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 echo -e "${LIGHT_GREEN}docker successfully installed${END}"
 
-sudo groupadd docker
-sudo usermod -aG docker $USER
+# If kubectl isn't working, add user to docker group and restart vm
+# sudo groupadd docker
+# sudo usermod -aG docker $USER
