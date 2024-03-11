@@ -12,10 +12,8 @@ kubectl create namespace dev
 sleep 5
 
 # setup argocd
-# kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-kubectl apply -n argocd -f "../argocd/install.yaml"
-#a modifier
-# kubectl patch -n argocd svc argocd-server jsonpath ("insecure")
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl patch deployment argocd-server -n argocd --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--insecure"}]'
 
 # wait for argocd to be ready
 kubectl wait --for=condition=Ready pod --all -n argocd --timeout=360s
