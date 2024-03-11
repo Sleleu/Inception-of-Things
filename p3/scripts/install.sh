@@ -5,7 +5,7 @@ END='\033[0m'
 
 # kubectl install
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-chmod +x ./kubectl
+chmod a+x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 echo -e "${LIGHT_GREEN}kubectl successfully installed to '$(which kubectl)'${END}"
 
@@ -24,7 +24,7 @@ echo -e "${LIGHT_GREEN}k3d successfully installed to '$(which k3d)'${END}"
 sudo apt-get update
 sudo apt-get install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 # Add the repository to Apt sources:
@@ -38,3 +38,6 @@ sudo apt-get update
 # get docker packages
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 echo -e "${LIGHT_GREEN}docker successfully installed${END}"
+
+sudo groupadd docker
+sudo usermod -aG docker $USER

@@ -1,6 +1,6 @@
 all:
-	bash ./scripts/install.sh
-	bash ./scripts/setup.sh
+	bash sudo ./scripts/install.sh
+	bash sudo ./scripts/setup.sh
 
 clean:
 	bash ./scripts/uninstall.sh

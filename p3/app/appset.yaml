@@ -4,9 +4,9 @@ metadata:
   name: dev
 spec:
   source:
-    repoURL: https://github.com/Sleleu/Inception-of-Things.git
+    repoURL: https://github.com/sleleu/iot-dev-sleleu.git
     targetRevision: HEAD
-    path: dev
+    path: config
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
