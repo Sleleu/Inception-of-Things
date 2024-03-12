@@ -1,9 +1,9 @@
 all:
-	bash sudo ./scripts/install.sh
-	bash sudo ./scripts/setup.sh
+	sudo bash ./scripts/add_host.sh
+	bash ./scripts/setup.sh
 
 clean:
-	bash ./scripts/uninstall.sh
+	k3d cluster delete sleleuC
 
 re : clean all
 

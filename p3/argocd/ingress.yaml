@@ -8,7 +8,8 @@ metadata:
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - http:
+  - host: argocd-server.com
+    http:
       paths:
       - path: /
         pathType: Prefix
