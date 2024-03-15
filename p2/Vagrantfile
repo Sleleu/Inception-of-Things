@@ -10,6 +10,6 @@ Vagrant.configure("2") do |config|
       server.vm.box = "debian/bookworm64"
       server.vm.hostname = "sleleuS"
       server.vm.network "private_network", ip: "192.168.56.110"
-      server.vm.provision "shell", path: "server.sh"
+      server.vm.provision "shell", path: "scripts/server.sh"
     end
 end  

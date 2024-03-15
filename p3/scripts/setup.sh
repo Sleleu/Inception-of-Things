@@ -27,8 +27,8 @@ echo -e "${LIGHT_GREEN}waiting for argocd pods to be ready${END}"
 kubectl wait --for=condition=Ready pod --all -n argocd --timeout=360s
 
 # ingress argocd and dev
-kubectl apply  -n argocd -f "argocd/ingress.yaml"
-kubectl apply -n dev -f "app/wil-ingress.yaml"
+kubectl apply  -n argocd -f "confs/ingress.yaml"
+kubectl apply -n dev -f "confs/wil-ingress.yaml"
 
 # get password
 export ARGOCD_PASSWD=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
@@ -38,7 +38,7 @@ sleep 3
 argocd login argocd-server.com:8888 --insecure --username admin --password $ARGOCD_PASSWD --plaintext --grpc-web
 
 # create the app
-argocd app create --file "app/appset.yaml" --sync-policy automated
+argocd app create --file "confs/appset.yaml" --sync-policy automated
 argocd app wait wil --sync --health
 
 echo -e "${LIGHT_GREEN}waiting for dev pods to be ready${END}"

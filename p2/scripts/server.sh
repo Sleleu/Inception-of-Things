@@ -13,7 +13,7 @@ mv ./kubectl /usr/local/bin/kubectl
 
 # Setup services
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-kubectl apply -f /vagrant/config/app1-deployment.yaml
-kubectl apply -f /vagrant/config/app2-deployment.yaml
-kubectl apply -f /vagrant/config/app3-deployment.yaml
-kubectl apply -f /vagrant/config/ingress.yaml 
+kubectl apply -f /vagrant/confs/app1-deployment.yaml
+kubectl apply -f /vagrant/confs/app2-deployment.yaml
+kubectl apply -f /vagrant/confs/app3-deployment.yaml
+kubectl apply -f /vagrant/confs/ingress.yaml 
